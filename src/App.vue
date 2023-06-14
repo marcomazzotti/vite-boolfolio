@@ -5,6 +5,7 @@ import ProjectCard from './components/ProjectCard.vue';
 export default {
   data() {
     return {
+      baseURL: "http://127.0.0.1:8000",
       projects: [],
     };
   },
@@ -13,7 +14,7 @@ export default {
   },
   methods: {
     getProjects() {
-      axios.get("http://127.0.0.1:8000/api/projects").then(resp => {
+      axios.get(`${this.baseURL}/api/projects`).then(resp => {
         this.projects = resp.data.results;
       });
     }
